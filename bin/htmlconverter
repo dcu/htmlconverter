@@ -1,0 +1,13 @@
+#!/usr/bin/env ruby
+
+$:.unshift File.dirname(__FILE__) + "/../lib"
+
+require 'htmlconverter'
+require 'open-uri'
+
+converter = HtmlConverter::Base.new
+s = converter.url_to(ARGV[0], :pdf)
+
+File.open("output.pdf", "wb") do |f|
+  f.write(s)
+end
