@@ -5,9 +5,15 @@ $:.unshift File.dirname(__FILE__) + "/../lib"
 require 'htmlconverter'
 require 'open-uri'
 
+if ARGV[0].nil?
+  $stderr.puts "Usage: htmlconverter http://google.com [google_page.pdf]"
+  exit 1
+end
+
 converter = HtmlConverter::Base.new
 s = converter.url_to(ARGV[0], :pdf)
 
-File.open("output.pdf", "wb") do |f|
+File.open(ARGV[1]||"output.pdf", "wb") do |f|
   f.write(s)
 end
+
