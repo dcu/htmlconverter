@@ -4,6 +4,7 @@ PostInstall.txt
 README.rdoc
 Rakefile
 bin/htmlconverter
+htmlconverter.gemspec
 lib/htmlconverter.rb
 lib/htmlconverter/base.rb
 lib/htmlconverter/renderer/base.rb
